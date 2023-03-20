@@ -3,7 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotEnv = require('dotenv-webpack');
 
 module.exports = {
+<<<<<<< HEAD
   entry: './src/index.js',
+=======
+  entry: './src/index.ts',
+>>>>>>> fab3bb1a725ef9f9d6466497659c9759612d737e
   mode: 'development',
   resolve: {
     extensions: ['.ts', '.js'],
@@ -14,6 +18,10 @@ module.exports = {
     historyApiFallback: true,
   },
   output: {
+<<<<<<< HEAD
+=======
+    publicPath: '/',
+>>>>>>> fab3bb1a725ef9f9d6466497659c9759612d737e
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,

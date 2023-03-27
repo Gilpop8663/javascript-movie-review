@@ -12,7 +12,8 @@
     "test-unit": "jest",
     "test-e2e": "cypress open",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "clean": "gh-pages-clean gh-pages -d dist"
   },
   "repository": {
     "type": "git",

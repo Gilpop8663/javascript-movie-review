@@ -60,22 +60,19 @@ const setDetailModalEvent = (detailMovieId: string): void => {
 
 const setDisconnectedError = (): void => {
   const movieContainer = $('movies-container') as HTMLMovieContainerElement;
+  movieContainer.setSearchWord('OFFLINE_ERROR');
 
   movieContainer.reset();
   $('#more-button')?.classList.add('hide');
   $('#more-button')?.classList.add('hide-button');
   $('#skeleton-container')?.classList.add('skeleton-hide');
 
-  movieContainer.setSearchWord('OFFLINE_ERROR');
   movieContainer.setErrorMessage('인터넷 연결이 끊겼습니다.');
 };
 
 window.addEventListener('offline', setDisconnectedError);
 
-window.addEventListener('online', () => {
-  console.log('온라인');
-  setStartMovieSiteUrl();
-});
+window.addEventListener('online', setStartMovieSiteUrl);
 
 window.addEventListener('load', setStartMovieSiteUrl);
 

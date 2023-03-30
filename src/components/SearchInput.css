@@ -54,6 +54,14 @@
     width: 18px;
     height: 18px;
   }
+
+  .header-center {
+    justify-content: center;
+  }
+
+  .hide-logo {
+    display: none;
+  }
 }
 
 @media (max-width: 340px) {

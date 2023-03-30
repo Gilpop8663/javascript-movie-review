@@ -16,13 +16,3 @@
 .movie-logo {
   cursor: pointer;
 }
-
-@media (max-width: 420px) {
-  .header-center {
-    justify-content: center !important;
-  }
-
-  .hide-logo {
-    display: none !important;
-  }
-}

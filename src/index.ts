@@ -38,7 +38,6 @@ const setMovieSiteUrl = (): void => {
 const setStartMovieSiteUrl = () => {
   const movieContainer = $('movies-container') as HTMLMovieContainerElement;
   const { searchWord, movieId } = getHashURLParams();
-
   if (movieId && searchWord) {
     movieContainer.setSearchWord(searchWord);
     setDetailModalEvent(movieId);
@@ -47,6 +46,11 @@ const setStartMovieSiteUrl = () => {
 
   if (movieId) {
     setDetailModalEvent(movieId);
+  }
+
+  if (searchWord) {
+    movieContainer.setSearchWord(searchWord);
+    return;
   }
 
   movieContainer.setSearchWord('');
@@ -60,9 +64,13 @@ const setDetailModalEvent = (detailMovieId: string): void => {
 
 const setDisconnectedError = (): void => {
   const movieContainer = $('movies-container') as HTMLMovieContainerElement;
+  const modal = $('#modal') as HTMLDialogElement;
   movieContainer.setSearchWord('OFFLINE_ERROR');
 
   movieContainer.reset();
+  $('body')?.classList.remove(SCROLL_HIDDEN_CLASSNAME);
+  modal.close();
+
   $('#more-button')?.classList.add('hide');
   $('#more-button')?.classList.add('hide-button');
   $('#skeleton-container')?.classList.add('skeleton-hide');

@@ -66,10 +66,16 @@ const setDisconnectedError = (): void => {
   $('#more-button')?.classList.add('hide-button');
   $('#skeleton-container')?.classList.add('skeleton-hide');
 
+  movieContainer.setSearchWord('OFFLINE_ERROR');
   movieContainer.setErrorMessage('인터넷 연결이 끊겼습니다.');
 };
 
 window.addEventListener('offline', setDisconnectedError);
+
+window.addEventListener('online', () => {
+  console.log('온라인');
+  setStartMovieSiteUrl();
+});
 
 window.addEventListener('load', setStartMovieSiteUrl);
 
